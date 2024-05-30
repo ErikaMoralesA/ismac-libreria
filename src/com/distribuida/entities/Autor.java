@@ -9,7 +9,7 @@ public class Autor {
 	private String direccion;
 	private String telefono;
 	private String correo;
-	//prueba aunmento comentario
+	//prueba aunmento comentario 
 	public Autor() {}
 
 	public Autor(int idAutor, String nombre, String apellido, String pais, String direccion, String telefono,
