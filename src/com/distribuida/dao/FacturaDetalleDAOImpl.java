@@ -9,22 +9,21 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.hibernate.query.Query;
-import com.distribuida.entities.Factura;
+import com.distribuida.entities.FacturaDetalle;
 
 @Repository
-public class FacturaDAOImpl implements FacturaDAO {
-
+public class FacturaDetalleDAOImpl implements FacturaDetalleDAO{
 
 	@Autowired
 	private SessionFactory sessionFactory;
 	@Override
 	@Transactional
 	////ACTUALIZACION
-	public List<Factura> findAll(){
+	public List<FacturaDetalle> findAll(){
 		//
 		Session session = sessionFactory.getCurrentSession();
 		
-		return session.createQuery("from Factura",Factura.class).getResultList();
+		return session.createQuery("from FacturaDetalle",FacturaDetalle.class).getResultList();
 		
 	}
 	
@@ -32,25 +31,25 @@ public class FacturaDAOImpl implements FacturaDAO {
 
 	@Override
 	@Transactional
-	public Factura findOne(int id) {
+	public FacturaDetalle findOne(int id) {
 		// TODO Auto-generated method stub
 		Session session =sessionFactory.getCurrentSession();
-		return session.get(Factura.class,id);
+		return session.get(FacturaDetalle.class,id);
 	}
 
 	@Override
 	@Transactional
-	public void add(Factura factura) {
+	public void add(FacturaDetalle facturaDetalle) {
 	Session session=sessionFactory.getCurrentSession();	// TODO Auto-generated method stub
-	session.saveOrUpdate(factura);
+	session.saveOrUpdate(facturaDetalle);
 	
 	}
 
 	@Override
 	@Transactional
-	public void up(Factura factura) {
+	public void up(FacturaDetalle facturaDetalle) {
 		Session session=sessionFactory.getCurrentSession();	// TODO Auto-generated method stub
-		session.saveOrUpdate(factura);
+		session.saveOrUpdate(facturaDetalle);
 		// TODO Auto-generated method stub
 
 	}
@@ -63,5 +62,6 @@ public class FacturaDAOImpl implements FacturaDAO {
 		// TODO Auto-generated method stub
 
 	}	
+	
 	
 }

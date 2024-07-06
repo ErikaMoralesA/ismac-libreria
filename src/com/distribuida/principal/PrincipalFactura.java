@@ -15,23 +15,23 @@ public class PrincipalFactura {
 		
 		
 		//Patron de Ioc o Inversion de control
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext ("ApplicationContext.xml");//esete es el contenedor
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext ("ApplicationContext.xml");//este es el contenedor
 		FacturaDAO facturaDAO = context.getBean("facturaDAOImpl",FacturaDAO.class);//este en minuscula si no no funciona
 		//CRUD CREEATE READ UPDATE Y DELETE
 		ClienteDAO clienteDAO=context.getBean("clienteDAOImpl",ClienteDAO.class);
 		//add
-		Factura factura = new Factura (0,"FAC-0090",new Date(),23.36,5.36,30.68);
+		Factura factura = new Factura (0,"FAC-0062",new Date(),23.36,5.36,30.68);
 		factura.setCliente(clienteDAO.findOne(2));
-		//facturaDAO.add(factura);
+		facturaDAO.add(factura);
 		
 		//UPDATE ACTUALIZADO
 		
-		Factura factura2 = new Factura (86,"FAC-0091",new Date(),23.32,5.32,30.62);
+		Factura factura2 = new Factura (86,"FAC-0095",new Date(),23.32,5.32,30.62);
 		factura2.setCliente(clienteDAO.findOne(3));
 		//facturaDAO.up(factura2);
 		
 		//del BORRADO
-		facturaDAO.del(86);
+		//facturaDAO.del(86);
 		//findOne
 		
 		

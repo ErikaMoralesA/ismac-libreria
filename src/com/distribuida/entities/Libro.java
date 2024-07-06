@@ -53,6 +53,7 @@ public class Libro {
 	@JoinColumn(name ="id_categoria")
 	@ManyToOne(cascade= {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
 	private Categoria categoria;
+	
 	@JoinColumn(name ="id_autor")
 	@ManyToOne(cascade= {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
 	private Autor autor; 
