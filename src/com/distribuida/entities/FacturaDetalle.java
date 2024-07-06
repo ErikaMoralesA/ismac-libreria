@@ -1,5 +1,9 @@
 package com.distribuida.entities;
 
+import javax.persistence.CascadeType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
 import org.springframework.stereotype.Component;
 
 @Component
@@ -9,6 +13,10 @@ public class FacturaDetalle {
 	private int cantidad;
 	private Double subtotal;
 	private Factura factura;
+	
+	@JoinColumn(name ="id_libro")
+	@ManyToOne(cascade= {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+	//persisten y detach viene asocado con una insercion de dats
 	private Libro libro;
 	
 	public FacturaDetalle () {}
@@ -19,7 +27,7 @@ public class FacturaDetalle {
 		this.cantidad = cantidad;
 		this.subtotal = subtotal;
 		this.factura = factura;
-		this.libro = libro;
+		//this.libro = libro;
 	}
 
 	public int getIdFacturaDetalle() {
