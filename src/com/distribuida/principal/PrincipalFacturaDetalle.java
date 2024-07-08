@@ -7,6 +7,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.distribuida.dao.FacturaDAO;
 import com.distribuida.dao.LibroDAO;
 import com.distribuida.dao.FacturaDetalleDAO;
+import com.distribuida.entities.FacturaDetalle;
 
 public class PrincipalFacturaDetalle {
 	
@@ -21,14 +22,14 @@ public class PrincipalFacturaDetalle {
 		FacturaDAO facturaDAO=context.getBean("facturaDAOImpl",FacturaDAO.class);
 		LibroDAO libroDAO=context.getBean("libroDAOImpl",LibroDAO.class);
 		//add
-		FacturaDetalle facturadetalle = new FacturaDetalle (0,2,30,84,0,0);
+		FacturaDetalle facturadetalle = new FacturaDetalle (0,5,28.03,0,0);
 		facturadetalle.setFactura(facturaDAO.findOne(5));
 		facturadetalle.setLibro(libroDAO.findOne(54));
 		facturadetalleDAO.add(facturadetalle);
 		
 		//UPDATE ACTUALIZADO
 		
-		FacturaDetalle facturadetalle2 = new FacturaDetalle (210,5,20,84,0,0);
+		FacturaDetalle facturadetalle2 = new FacturaDetalle (210,5,20,0,0);
 		facturadetalle2.setFactura(facturaDAO.findOne(3));
 		facturadetalle2.setLibro(libroDAO.findOne(3));
 		//facturaDAO.up(factura2);
