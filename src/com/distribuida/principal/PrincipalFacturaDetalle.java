@@ -22,14 +22,14 @@ public class PrincipalFacturaDetalle {
 		FacturaDAO facturaDAO=context.getBean("facturaDAOImpl",FacturaDAO.class);
 		LibroDAO libroDAO=context.getBean("libroDAOImpl",LibroDAO.class);
 		//add
-		FacturaDetalle facturadetalle = new FacturaDetalle (0,5,28.03,0,0);
+		FacturaDetalle facturadetalle = new FacturaDetalle (0,5,28.7);
 		facturadetalle.setFactura(facturaDAO.findOne(5));
 		facturadetalle.setLibro(libroDAO.findOne(54));
 		facturadetalleDAO.add(facturadetalle);
 		
 		//UPDATE ACTUALIZADO
 		
-		FacturaDetalle facturadetalle2 = new FacturaDetalle (210,5,20,0,0);
+		FacturaDetalle facturadetalle2 = new FacturaDetalle (0,6,32.7);
 		facturadetalle2.setFactura(facturaDAO.findOne(3));
 		facturadetalle2.setLibro(libroDAO.findOne(3));
 		//facturaDAO.up(factura2);

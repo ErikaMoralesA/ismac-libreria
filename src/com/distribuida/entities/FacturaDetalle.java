@@ -39,12 +39,12 @@ public class FacturaDetalle {
 	
 	public FacturaDetalle () {}
 
-	public FacturaDetalle(int idFacturaDetalle, int cantidad, Double subtotal, Factura factura, Libro libro) {
+	public FacturaDetalle(int idFacturaDetalle, int cantidad, Double subtotal) {
 		
 		this.idFacturaDetalle = idFacturaDetalle;
 		this.cantidad = cantidad;
 		this.subtotal = subtotal;
-		this.factura = factura;
+		//this.factura = factura;
 		//this.libro = libro;
 	}
 

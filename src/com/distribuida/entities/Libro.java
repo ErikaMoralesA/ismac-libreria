@@ -62,7 +62,7 @@ public class Libro {
 
 	public Libro(int idLibro, String titulo, String editorial, int num_paginas, String edicion, String idioma,
 			Date fecha_Publicacion, String descripcion, String tipo_pasta, String iSBN, int num_ejemplares,
-			String portada, String presentacion, Double precio, Categoria categoria, Autor autor) {
+			String portada, String presentacion, Double precio) {
 		super();
 		this.idLibro = idLibro;
 		this.titulo = titulo;
