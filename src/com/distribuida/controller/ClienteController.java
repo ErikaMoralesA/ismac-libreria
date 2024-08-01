@@ -1,11 +1,13 @@
 package com.distribuida.controller;
-
+//CLIENTE AUTOR Y CATEGORIA
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -20,7 +22,7 @@ public class ClienteController {
 	private ClienteDAO clienteDAO;
 	
 	
-	@RequestMapping("/findAll")  //Path secundario
+	@GetMapping("/findAll")  //Path secundario
 	public String findAll(Model model) {
 		
 //		try {
@@ -39,24 +41,29 @@ public class ClienteController {
 	}
 	
 	
-	@RequestMapping("/findOne")  //Actualizar o eliminar
+	@GetMapping("/findOne")  //Actualizar o eliminar
 	public String findOne(@RequestParam("idCliente") @Nullable Integer idCliente  
 			,@RequestParam("opcion") @Nullable Integer opcion
 			, Model model 
-			
 	){
+		
+	//try{
 		
 	if(idCliente !=null) {
 		Cliente cliente = clienteDAO.findOne(idCliente);
 		model.addAttribute("cliente", cliente);
 	}
 	
-	if(opcion == 1) return "cliente-add";
+	if(opcion == 1) return "cliente-add"; //el formulario web "clientes-add" se usa para  agregar o actualizar
 	else return "clientes-del";
+	
+//	} catch (Exception e) {
+//	// TODO: handle exception
+//}
 		
 	}
 	
-	@RequestMapping("/add")
+	@PostMapping("/add")
 	public String add(@RequestParam("idCliente") @Nullable Integer idCliente
 			,@RequestParam("cedula") @Nullable String cedula
 			,@RequestParam("nombre") @Nullable String nombre
@@ -66,6 +73,8 @@ public class ClienteController {
 			,@RequestParam("correo") @Nullable String correo
 			,Model model	
 			) {
+		
+//		try{
 				
 		if(idCliente == null) { //guardar
 			Cliente cliente = new Cliente(0, cedula, nombre, apellido, direccion, telefono, correo);
@@ -75,15 +84,24 @@ public class ClienteController {
 			clienteDAO.up(cliente);
 		}
 		return "redirect:/clientes/findAlla";
+		
+//		} catch (Exception e) {
+//		// TODO: handle exception
+//	}
+	
+		
 	}
 	
-	@RequestMapping("/del")
+	@GetMapping("/del")
 	public String del(@RequestParam("idCliente") @Nullable Integer idCliente) {
-		
+//		try{
 		clienteDAO.del(idCliente);
 		
 		return "Redirect:/clientes/findAll";
-		
+//		} catch (Exception e) {
+//		// TODO: handle exception
+//		e.printStackTrace();
+//	}
 	}
 	
 }
