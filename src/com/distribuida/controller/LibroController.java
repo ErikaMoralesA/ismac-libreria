@@ -96,7 +96,7 @@ public class LibroController {
 			
 		}
 		
-		return "redirect:/libros/listar-libros";
+		return "redirect:/libros/findAll";
 		
 	}
 	

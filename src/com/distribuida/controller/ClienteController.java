@@ -79,10 +79,14 @@ public class ClienteController {
 		if(idCliente == null) { //guardar
 			Cliente cliente = new Cliente(0, cedula, nombre, apellido, direccion, telefono, correo);
 			clienteDAO.add(cliente);
+			
 		}else { //actualizar
+			
 			Cliente cliente = new Cliente(idCliente, cedula, nombre, apellido, direccion, telefono, correo);
 			clienteDAO.up(cliente);
+			
 		}
+		
 		return "redirect:/clientes/findAlla";
 		
 //		} catch (Exception e) {
@@ -94,14 +98,18 @@ public class ClienteController {
 	
 	@GetMapping("/del")
 	public String del(@RequestParam("idCliente") @Nullable Integer idCliente) {
+		
 //		try{
+		
 		clienteDAO.del(idCliente);
 		
 		return "Redirect:/clientes/findAll";
+		
 //		} catch (Exception e) {
 //		// TODO: handle exception
 //		e.printStackTrace();
 //	}
+		
 	}
 	
 }
